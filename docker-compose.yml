@@ -1,0 +1,17 @@
+version: '3'
+
+services:
+  discord-bot:
+    build:
+      context: .
+    container_name: discord-bot
+    volumes:
+      - .:/app
+    env_file:
+      - .env
+    command: ["python", "bot.py"]
+
+networks:
+  default:
+    name: langchain-server_default
+    external: true
